@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Your daily task reminder</title>
+    <style>
+        * { font-family: arial, Verdana; }
+        h1, h2, h3 { color: dimgrey; margin: 5px; margin-top: 30px; }
+        .warning { color: brown; font-size:70% }
+        div.task { border-bottom: 1px solid lightgrey; padding: 5px; }
+        div.task a { font-weight: bold; line-height: 1.5em }
+        div.body { border-left: lightgrey 4px solid; padding-left: 5px; color: gray}
+        small {color: gray}
+    </style>
+</head>
+<body>
+    <p><i><small>This is an automated alert to remind you of some tasks that you are assigned to. </small></i></p>
+    
+    @{HAS_WAY_OVERDUE_TASK}
+    <h2>What's up with these?</h2>
+    <div class="warning">These are wayyyyyy overdue. 
+    You gotta do these, or at least discuss and update the Due Date to an acceptable Date on Sharepoint. 
+    You are making me send too many reminders!</div>
+    @{WAY_OVERDUE_TASKS}
+    @{/HAS_WAY_OVERDUE_TASK}
+
+    @{HAS_OVERDUE_TASK}    
+    <h2>Overdue Tasks</h2>
+    <div class="warning">These are overdue. Click on the task to provide new Due Date. If you have done them, then please mark them as complete.</div>
+    @{OVERDUE_TASKS}
+    @{/HAS_OVERDUE_TASK}
+    
+    @{HAS_TODAY_TASKS}
+    <h2>Today's Tasks</h2>
+    <div class="warning">You gotta get these done today. If not, then provide new Due Date.</div>
+    @{TODAY_TASKS}
+    @{/HAS_TODAY_TASKS}
+    
+    @{HAS_TOMORROW_TASKS}
+    <h2>Tomorrow's Tasks</h2>    
+    @{TOMORROW_TASKS}
+    @{/HAS_TOMORROW_TASKS}
+
+    @{HAS_THISWEEK_TASKS}
+    <h2>This week's Tasks</h2>
+    @{THISWEEK_TASKS}
+    @{/HAS_THISWEEK_TASKS}
+</body>
+</html>
